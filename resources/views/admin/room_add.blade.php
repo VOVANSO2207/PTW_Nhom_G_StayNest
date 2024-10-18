@@ -46,7 +46,7 @@
                                 <form method="post" enctype="multipart/form-data">
                                     <div class="card-body">
                                         <div class="d-flex align-items-start align-items-sm-center gap-4">
-                                            <img src="{{ asset('img-upload.jpg') }}" alt="user-avatar"
+                                            <img src="{{ asset('/images/img-upload.jpg') }}" alt="user-avatar"
                                                 class="d-block rounded" height="100" width="100" id="fileUpload" />
                                             <div class="button-wrapper">
                                                 <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 
 <html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default"
     data-assets-path="../assets/" data-template="vertical-menu-template-free">
@@ -24,33 +24,33 @@
         rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('storage/css/multi-select-tag.css') }}">
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="{{ asset('storage/assets/vendor/fonts/boxicons.css') }}" />
+    <link rel="stylesheet" href="{{ asset('fonts/boxicons.css') }}" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="{{ asset('storage/assets/vendor/css/core.css') }}"
+    <link rel="stylesheet" href="{{ asset('/assets/vendor/css/core.css') }}"
         class="template-customizer-core-css" />
-    <link rel="stylesheet" href="{{ asset('storage/assets/vendor/css/theme-default.css') }}"
+    <link rel="stylesheet" href="{{ asset('/assets/vendor/css/theme-default.css') }}"
         class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="{{ asset('storage/assets/css/demo.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/assets/css/demo.css') }}" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="{{ asset('storage/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
 
-    <link rel="stylesheet" href="{{ asset('storage/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
 
     <!-- Page CSS -->
 
     <!-- Helpers -->
-    <script src="{{ asset('storage/assets/vendor/js/helpers.js') }}"></script>
+    <script src="{{ asset('/assets/vendor/js/helpers.js') }}"></script>
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
-    <script src="{{ asset('storage/ckeditor/ckeditor.js') }}"></script>
-    <script src="{{ asset('storage/ckeditor/lang/vi.js') }}"></script>
+    <script src="{{ asset('/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('/ckeditor/lang/vi.js') }}"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="{{ asset('storage/assets/js/config.js') }}"></script>
+    <script src="{{ asset('/assets/js/config.js') }}"></script>
 </head>
 
 <body>
@@ -94,4 +94,4 @@
 
 </body>
 
-</html>
+</html> --}}

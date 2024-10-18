@@ -1,4 +1,4 @@
-{{-- @extends('layouts.app')
+@extends('layouts.app')
 @section('content')
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +20,7 @@
             margin-bottom: 20px;
 
         }
-
+        
         .filter_price {
             width: 100%;
             margin: 20px 0;
@@ -963,4 +963,4 @@
 </body>
 
 </html>
-@endsection --}}
+@endsection

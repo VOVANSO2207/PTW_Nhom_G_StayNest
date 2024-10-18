@@ -12,7 +12,7 @@
                         <div class="card-body">
                             <div class="d-flex align-items-start align-items-sm-center gap-4">
                                 <img
-                                    src="{{ asset('img-upload.jpg') }}"
+                                    src="{{ asset('/images/img-upload.jpg') }}"
                                     alt="user-avatar"
                                     class=""
                                     height="100"
