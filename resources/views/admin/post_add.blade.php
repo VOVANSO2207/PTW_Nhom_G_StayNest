@@ -5,72 +5,63 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card mb-4">
-                <!-- Account -->
-                <hr class="my-0"/>
+                <hr class="my-0" />
                 <div class="card-body">
-                    <form method="post" enctype="multipart/form-data">
+                    <!-- Form to Add Post -->
+                    <form method="post" id="postForm" action="{{ route('admin.post.store') }}"
+                        enctype="multipart/form-data">
+                        @csrf
                         <div class="card-body">
                             <div class="d-flex align-items-start align-items-sm-center gap-4">
-                                <img
-                                    src="{{ asset('/images/img-upload.jpg') }}"
-                                    alt="user-avatar"
-                                    class=""
-                                    height="100"
-                                    width="100"
-                                    id="fileUpload"
-                                />
+                                <img src="{{ asset('/images/img-upload.jpg') }}" alt="user-avatar" class="" height="100"
+                                    width="100" id="fileUpload" />
                                 <div class="button-wrapper">
                                     <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
                                         <span class="d-none d-sm-block">Upload</span>
                                         <i class="bx bx-upload d-block d-sm-none"></i>
-                                        <input
-                                            type="file"
-                                            id="upload"
-                                            name="fileUpload"
-                                            class="account-file-input"
-                                            hidden
-                                            accept="image/png, image/jpeg, image/jpg"
-                                        />
+                                        <input type="file" id="upload" name="fileUpload" class="account-file-input"
+                                            hidden accept="image/png, image/jpeg, image/jpg" />
                                     </label>
                                 </div>
                             </div>
                         </div>
-                    </form>
-
-                    <form id="formAccountSettings" method="GET" onsubmit="return false" enctype="multipart/form-data">
                         <div class="row">
-                                <div class="mb-3 col-md-12">
+                            <div class="mb-3 col-md-12">
                                 <label class="form-label">Title</label>
-                                <input class="form-control" type="text" name="title" id="title" placeholder="title" required/>
+                                <input class="form-control" type="text" name="title" id="title" placeholder="Title"
+                                    required />
                             </div>
                             <div class="mb-3 col-md-12">
                                 <label class="form-label">Description</label>
-                                <textarea name="description" id="description"></textarea>
+                                <textarea name="description" id="description" required></textarea>
                             </div>
                             <div class="mb-3 col-md-12">
                                 <label class="form-label">Content</label>
-                                <textarea name="content" id="content"></textarea>
+                                <textarea name="content1" id="content1"></textarea>
                             </div>
                             <div class="mb-3 col-md-12">
                                 <label class="form-label">Meta Desc</label>
-                                <input class="form-control" type="text" id="meta_desc" name="meta_Desc" placeholder="Meta Desc" autofocus required/>
+                                <input class="form-control" type="text" id="meta_desc" name="meta_desc"
+                                    placeholder="Meta Desc" required />
                             </div>
                             <div class="mb-3 col-md-5">
                                 <label class="form-label">Status</label>
-                                <select id="status" class="select2 form-select">
-                                    <option value="show" selected>Show</option>
-                                    <option value="hidden">Hidden</option>
+                                <select id="status" name="status" class="select2 form-select">
+                                    <option value="1" selected>Show</option>
+                                    <option value="0">Hidden</option>
                                 </select>
                             </div>
                             <div class="mb-3 col-md-12">
                                 <label class="form-label">Url Seo</label>
-                                <input class="form-control" type="text" id="Url_Seo" name="url_Seo" placeholder="Url Seo" autofocus readonly/>
+                                <input class="form-control" type="text" id="url_seo" name="url_seo"
+                                    placeholder="Url Seo" readonly />
                             </div>
                         </div>
                         <div class="mt-2" style="text-align: right">
-                            <button type="reset" class="btn btn-outline-secondary">Reset</button>
-                            <button type="button" class="btn btn-outline-danger" onclick="window.location.href='{{ route('admin.viewpost') }}'">Close</button>
-                            <button type="submit" class="btn btn-outline-success me-2 add_post">Save</button>
+                            <button type="reset" class="btn btn-outline-secondary" onclick="resetForm()">Reset</button>
+                            <button type="button" class="btn btn-outline-danger"
+                                onclick="window.location.href='{{ route('admin.viewpost') }}'">Close</button>
+                            <button type="submit" class="btn btn-outline-success me-2">Save</button>
                         </div>
                     </form>
                 </div>
@@ -81,16 +72,89 @@
 </div>
 <!-- / Content -->
 <script>
-      window.onload = function() {
-        CKEDITOR.replace('content',{
+    window.onload = function () {
+        CKEDITOR.replace('content1', {
             filebrowserUploadUrl: "path/to/upload/image"
         });
     };
-     
-        CKEDITOR.replace('description',{
-            filebrowserUploadUrl: "path/to/upload/image"
+
+    CKEDITOR.replace('description', {
+        filebrowserUploadUrl: "path/to/upload/image"
+    });
+
+    $("#title").on("keyup input", function () {
+        // Lấy giá trị nhập vào
+        var inputValue = $(this).val();
+        var trimmedValue = inputValue.replace(/\s+$/, "");
+        var formattedValue = trimmedValue
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/\s+/g, "-");
+
+        $("#url_seo").val(formattedValue);
+    });
+
+    $('#postForm').on('submit', function (event) {
+        event.preventDefault();
+        var img = $('#upload')[0].files[0]; // Lấy tệp hình ảnh từ input
+
+        // Lấy dữ liệu từ các trường khác
+        var title = $('#title').val();
+        var description = CKEDITOR.instances.description.getData();
+        var content = CKEDITOR.instances.content1.getData();
+        var meta_desc = $('#meta_desc').val();
+        var statusValue = $('#status option:selected').val();
+        var url_seo = $('#url_seo').val();
+
+
+       
+        var formData = new FormData();
+        formData.append('_token', '{{ csrf_token() }}'); // Thêm token CSRF
+        formData.append('title', title);
+        formData.append('description', description);
+        formData.append('content1', content);
+        formData.append('meta_desc', meta_desc);
+        formData.append('status', statusValue);
+        formData.append('url_seo', url_seo);
+        if (img) {
+            formData.append('fileUpload', img); 
+        }
+
+        // Gửi dữ liệu qua AJAX
+        $.ajax({
+            url: "{{ route('admin.post.store') }}",
+            method: 'POST',
+            data: formData,
+            contentType: false, 
+            processData: false,
+            success: function (response) {
+                alert('Thêm bài viết thành công.');
+                window.location.href = '{{ route('admin.viewpost') }}';
+            },
+            error: function (xhr) {
+                // Xử lý lỗi
+                var errors = xhr.responseJSON.errors;
+                var errorMessage = '';
+                for (var key in errors) {
+                    if (errors.hasOwnProperty(key)) {
+                        errorMessage += errors[key][0] + '\n';
+                    }
+                }
+                alert(errorMessage || 'Đã xảy ra lỗi!');
+            }
         });
-  
+    });
+
+    function resetForm() {
+        // Đặt lại giá trị của tất cả các trường trong form
+        $('#postForm')[0].reset(); // Reset các trường input
+
+        // Đặt lại CKEditor
+        CKEDITOR.instances['content1'].setData('');
+        CKEDITOR.instances['description'].setData('');
+
+        $("#fileUpload").attr("src", "{{ asset('/images/img-upload.jpg') }}"); // Đặt lại hình ảnh mặc định
+        $("#url_seo").val(''); // Xóa giá trị URL SEO
+    }
 </script>
 @endsection
-
