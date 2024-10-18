@@ -23,8 +23,7 @@ return new class extends Migration
             $table->date('check_out');
             $table->double('total_price');
             $table->enum('status', ['confirmed','cancelled','pending']);
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();

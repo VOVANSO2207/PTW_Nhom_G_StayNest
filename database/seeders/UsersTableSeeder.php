@@ -23,8 +23,6 @@ class UsersTableSeeder extends Seeder
                     'role_id' => 2, // Vai trò người dùng
                     'status' => true, // Kích hoạt người dùng
                     'avatar' => 'john_avatar.png',
-                    'created_at' => now(),
-                    'updated_at' => now(),
                 ],
                 [
                     'username' => 'jane_smith',
@@ -34,8 +32,6 @@ class UsersTableSeeder extends Seeder
                     'role_id' => 3, // Vai trò người dùng khác
                     'status' => false, // Người dùng chưa được kích hoạt
                     'avatar' => 'jane_avatar.png',
-                    'created_at' => now(),
-                    'updated_at' => now(),
                 ],
                 [
                     'username' => 'mike_jones',
@@ -45,8 +41,6 @@ class UsersTableSeeder extends Seeder
                     'role_id' => 2,
                     'status' => true,
                     'avatar' => 'mike_avatar.png',
-                    'created_at' => now(),
-                    'updated_at' => now(),
                 ],
                 [
                     'username' => 'lisa_williams',
@@ -56,8 +50,6 @@ class UsersTableSeeder extends Seeder
                     'role_id' => 3,
                     'status' => true,
                     'avatar' => 'lisa_avatar.png',
-                    'created_at' => now(),
-                    'updated_at' => now(),
                 ],
                 [
                     'username' => 'susan_brown',
@@ -67,8 +59,7 @@ class UsersTableSeeder extends Seeder
                     'role_id' => 2,
                     'status' => false,
                     'avatar' => 'susan_avatar.png',
-                    'created_at' => now(),
-                    'updated_at' => now(),
+
                 ],
             ]
 

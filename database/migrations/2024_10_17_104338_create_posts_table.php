@@ -20,8 +20,7 @@ return new class extends Migration
             $table->boolean('status');
             $table->string('url_seo');
             $table->string('img');
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
+            $table->timestamps();
         });
     }
 

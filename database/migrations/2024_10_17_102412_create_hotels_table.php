@@ -18,9 +18,9 @@ return new class extends Migration
             $table->integer('city_id');
             $table->text('description');
             $table->decimal('rating');
-            $table->timestamp('created_at');
-            $table->timestamp('update_at');
+           
             $table->integer('image_id');
+            $table->timestamps();
         });
     }
     

@@ -17,11 +17,10 @@ return new class extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('phone_number');
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
             $table->integer('role_id');
             $table->boolean('status');
             $table->char('avatar');
+            $table->timestamps();
         });
     }
 

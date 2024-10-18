@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreign('history_id')->references('booking_id')->on('booking');
             $table->integer('user_id');
             $table->integer('booking_id')->unsigned(); 
-            $table->timestamp('created_at');
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();

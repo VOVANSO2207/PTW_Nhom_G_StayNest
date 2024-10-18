@@ -20,8 +20,7 @@ return new class extends Migration
             $table->double('discount_amount');
             $table->date('start_date');
             $table->date('end_date');
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();

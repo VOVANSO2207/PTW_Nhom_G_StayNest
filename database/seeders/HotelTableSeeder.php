@@ -21,8 +21,6 @@ class HotelTableSeeder extends Seeder
                 'city_id' => 1,
                 'description' => 'Khách sạn 4 sao tại trung tâm Quận 1 với dịch vụ chất lượng.',
                 'rating' => 4.5,
-                'created_at' => now(),
-                'update_at' => now(),
                 'image_id' => 1,
             ],
             [
@@ -31,8 +29,6 @@ class HotelTableSeeder extends Seeder
                 'city_id' => 2,
                 'description' => 'Khách sạn boutique tại Hà Nội với view hồ Hoàn Kiếm.',
                 'rating' => 4.7,
-                'created_at' => now(),
-                'update_at' => now(),
                 'image_id' => 2,
             ],
             [
@@ -41,8 +37,6 @@ class HotelTableSeeder extends Seeder
                 'city_id' => 3,
                 'description' => 'Khách sạn 5 sao với bể bơi vàng 24k, view biển tuyệt đẹp.',
                 'rating' => 4.9,
-                'created_at' => now(),
-                'update_at' => now(),
                 'image_id' => 3,
             ],
             [
@@ -51,8 +45,6 @@ class HotelTableSeeder extends Seeder
                 'city_id' => 4,
                 'description' => 'Khách sạn ven biển Nha Trang với view nhìn ra biển.',
                 'rating' => 4.3,
-                'created_at' => now(),
-                'update_at' => now(),
                 'image_id' => 4,
             ],
             [
@@ -61,8 +53,6 @@ class HotelTableSeeder extends Seeder
                 'city_id' => 5,
                 'description' => 'Resort nghỉ dưỡng 5 sao với bãi biển riêng tại Phú Quốc.',
                 'rating' => 4.8,
-                'created_at' => now(),
-                'update_at' => now(),
                 'image_id' => 5,
             ],
             [
@@ -71,8 +61,6 @@ class HotelTableSeeder extends Seeder
                 'city_id' => 6,
                 'description' => 'Khách sạn sang trọng bên bờ biển tại Vũng Tàu.',
                 'rating' => 4.6,
-                'created_at' => now(),
-                'update_at' => now(),
                 'image_id' => 6,
             ],
             [
@@ -81,8 +69,6 @@ class HotelTableSeeder extends Seeder
                 'city_id' => 2,
                 'description' => 'Khách sạn cao cấp tại Hà Nội với view toàn cảnh thành phố.',
                 'rating' => 4.9,
-                'created_at' => now(),
-                'update_at' => now(),
                 'image_id' => 7,
             ],
             [
@@ -91,8 +77,6 @@ class HotelTableSeeder extends Seeder
                 'city_id' => 7,
                 'description' => 'Khách sạn 4 sao với kiến trúc cổ kính đặc trưng của Hội An.',
                 'rating' => 4.4,
-                'created_at' => now(),
-                'update_at' => now(),
                 'image_id' => 8,
             ],
             [
@@ -101,8 +85,6 @@ class HotelTableSeeder extends Seeder
                 'city_id' => 8,
                 'description' => 'Khách sạn trên núi với view nhìn ra ruộng bậc thang và thung lũng.',
                 'rating' => 4.6,
-                'created_at' => now(),
-                'update_at' => now(),
                 'image_id' => 9,
             ],
             [
@@ -111,8 +93,6 @@ class HotelTableSeeder extends Seeder
                 'city_id' => 9,
                 'description' => 'Khách sạn với view nhìn ra vịnh Hạ Long nổi tiếng.',
                 'rating' => 4.7,
-                'created_at' => now(),
-                'update_at' => now(),
                 'image_id' => 10,
             ],
         ]);

@@ -21,9 +21,7 @@ return new class extends Migration
             $table->integer('discount_percent');
             $table->integer('capacity');
             $table->text('description');
-            $table->timestamp('created_at');
-            $table->foreign('created_at')->references('room_id')->on('booking');
-            $table->timestamp('updated_at');
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();

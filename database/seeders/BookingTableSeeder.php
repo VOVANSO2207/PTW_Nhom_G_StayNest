@@ -22,8 +22,6 @@ class BookingTableSeeder extends Seeder
                 'check_out' => '2024-10-15',
                 'total_price' => 5000000.00,
                 'status' => 'confirmed',
-                'created_at' => now(),
-                'updated_at' => now(),
             ],
             [
                 'user_id' => 2,
@@ -33,8 +31,6 @@ class BookingTableSeeder extends Seeder
                 'check_out' => '2024-10-10',
                 'total_price' => 4500000.00,
                 'status' => 'cancelled',
-                'created_at' => now(),
-                'updated_at' => now(),
             ],
             [
                 'user_id' => 3,
@@ -44,8 +40,6 @@ class BookingTableSeeder extends Seeder
                 'check_out' => '2024-09-30',
                 'total_price' => 6000000.00,
                 'status' => 'pending',
-                'created_at' => now(),
-                'updated_at' => now(),
             ],
             [
                 'user_id' => 4,
@@ -55,8 +49,6 @@ class BookingTableSeeder extends Seeder
                 'check_out' => '2024-08-25',
                 'total_price' => 5500000.00,
                 'status' => 'confirmed',
-                'created_at' => now(),
-                'updated_at' => now(),
             ],
             [
                 'user_id' => 5,
@@ -66,8 +58,6 @@ class BookingTableSeeder extends Seeder
                 'check_out' => '2024-07-20',
                 'total_price' => 4000000.00,
                 'status' => 'completed',
-                'created_at' => now(),
-                'updated_at' => now(),
             ],
             [
                 'user_id' => 6,
@@ -77,8 +67,6 @@ class BookingTableSeeder extends Seeder
                 'check_out' => '2024-06-10',
                 'total_price' => 3500000.00,
                 'status' => 'confirmed',
-                'created_at' => now(),
-                'updated_at' => now(),
             ],
             [
                 'user_id' => 7,
@@ -88,8 +76,6 @@ class BookingTableSeeder extends Seeder
                 'check_out' => '2024-05-05',
                 'total_price' => 5000000.00,
                 'status' => 'completed',
-                'created_at' => now(),
-                'updated_at' => now(),
             ],
             [
                 'user_id' => 8,
@@ -99,8 +85,6 @@ class BookingTableSeeder extends Seeder
                 'check_out' => '2024-04-20',
                 'total_price' => 3000000.00,
                 'status' => 'cancelled',
-                'created_at' => now(),
-                'updated_at' => now(),
             ],
             [
                 'user_id' => 9,
@@ -110,8 +94,6 @@ class BookingTableSeeder extends Seeder
                 'check_out' => '2024-03-05',
                 'total_price' => 2500000.00,
                 'status' => 'pending',
-                'created_at' => now(),
-                'updated_at' => now(),
             ],
             [
                 'user_id' => 10,
@@ -121,8 +103,6 @@ class BookingTableSeeder extends Seeder
                 'check_out' => '2024-02-25',
                 'total_price' => 6000000.00,
                 'status' => 'completed',
-                'created_at' => now(),
-                'updated_at' => now(),
             ],
         ]);
     }

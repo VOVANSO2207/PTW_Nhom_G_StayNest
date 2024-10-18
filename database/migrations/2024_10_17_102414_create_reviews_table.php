@@ -21,8 +21,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->decimal('rating');
             $table->text('comment');
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();

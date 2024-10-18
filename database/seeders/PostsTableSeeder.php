@@ -22,8 +22,6 @@ class PostsTableSeeder extends Seeder
                 'status' => true,
                 'url_seo' => 'khach-san-sang-trong-nhat-viet-nam',
                 'img' => 'hotel_luxury_vietnam.jpg',
-                'created_at' => now(),
-                'updated_at' => now(),
             ],
             [
                 'title' => 'Top 10 khách sạn bãi biển đẹp nhất',
@@ -33,8 +31,6 @@ class PostsTableSeeder extends Seeder
                 'status' => true,
                 'url_seo' => 'top-10-khach-san-bai-bien-dep-nhat',
                 'img' => 'beach_hotel_top10.jpg',
-                'created_at' => now(),
-                'updated_at' => now(),
             ],
             [
                 'title' => 'Khách sạn bình dân tại Hà Nội',
@@ -44,8 +40,6 @@ class PostsTableSeeder extends Seeder
                 'status' => true,
                 'url_seo' => 'khach-san-binh-dan-tai-ha-noi',
                 'img' => 'budget_hotel_hanoi.jpg',
-                'created_at' => now(),
-                'updated_at' => now(),
             ],
             [
                 'title' => 'Khách sạn có dịch vụ tốt nhất ở Đà Nẵng',
@@ -55,8 +49,6 @@ class PostsTableSeeder extends Seeder
                 'status' => true,
                 'url_seo' => 'khach-san-co-dich-vu-tot-nhat-o-da-nang',
                 'img' => 'best_service_hotel_danang.jpg',
-                'created_at' => now(),
-                'updated_at' => now(),
             ],
             [
                 'title' => 'Khách sạn thân thiện với môi trường tại Hội An',
@@ -66,8 +58,6 @@ class PostsTableSeeder extends Seeder
                 'status' => true,
                 'url_seo' => 'khach-san-than-thien-voi-moi-truong-tai-hoi-an',
                 'img' => 'eco_friendly_hotel_hoian.jpg',
-                'created_at' => now(),
-                'updated_at' => now(),
             ],
             [
                 'title' => 'Khách sạn phong cách cổ điển tại Huế',
@@ -77,8 +67,6 @@ class PostsTableSeeder extends Seeder
                 'status' => true,
                 'url_seo' => 'khach-san-phong-cach-co-dien-tai-hue',
                 'img' => 'classic_hotel_hue.jpg',
-                'created_at' => now(),
-                'updated_at' => now(),
             ],
             [
                 'title' => 'Khách sạn gần các điểm du lịch tại Nha Trang',
@@ -88,8 +76,6 @@ class PostsTableSeeder extends Seeder
                 'status' => true,
                 'url_seo' => 'khach-san-gan-cac-diem-du-lich-tai-nha-trang',
                 'img' => 'hotel_near_tourist_spots_nhatrang.jpg',
-                'created_at' => now(),
-                'updated_at' => now(),
             ],
             [
                 'title' => 'Những khách sạn lý tưởng cho tuần trăng mật',
@@ -99,8 +85,6 @@ class PostsTableSeeder extends Seeder
                 'status' => true,
                 'url_seo' => 'khach-san-ly-tuong-cho-tuan-trang-mat',
                 'img' => 'honeymoon_hotel.jpg',
-                'created_at' => now(),
-                'updated_at' => now(),
             ],
             [
                 'title' => 'Khách sạn có hồ bơi đẹp tại Phú Quốc',
@@ -110,8 +94,6 @@ class PostsTableSeeder extends Seeder
                 'status' => true,
                 'url_seo' => 'khach-san-co-ho-boi-dep-tai-phu-quoc',
                 'img' => 'pool_view_hotel_phuquoc.jpg',
-                'created_at' => now(),
-                'updated_at' => now(),
             ],
             [
                 'title' => 'Kinh nghiệm đặt phòng khách sạn trực tuyến',
@@ -121,8 +103,6 @@ class PostsTableSeeder extends Seeder
                 'status' => true,
                 'url_seo' => 'kinh-nghiem-dat-phong-khach-san-truc-tuyen',
                 'img' => 'online_booking_tips.jpg',
-                'created_at' => now(),
-                'updated_at' => now(),
             ],
         ]);
     }

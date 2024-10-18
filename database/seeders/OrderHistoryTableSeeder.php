@@ -17,52 +17,42 @@ class OrderHistoryTableSeeder extends Seeder
             [
                 'user_id' => 1,
                 'booking_id' => 1, // Đảm bảo booking_id tồn tại
-                'created_at' => now(),
             ],
             [
                 'user_id' => 2,
                 'booking_id' => 2, // Đảm bảo booking_id tồn tại
-                'created_at' => now(),
             ],
             [
                 'user_id' => 3,
                 'booking_id' => 3, // Đảm bảo booking_id tồn tại
-                'created_at' => now(),
             ],
             [
                 'user_id' => 4,
                 'booking_id' => 4, // Đảm bảo booking_id tồn tại
-                'created_at' => now(),
             ],
             [
                 'user_id' => 5,
                 'booking_id' => 5, // Đảm bảo booking_id tồn tại
-                'created_at' => now(),
             ],
             [
                 'user_id' => 6,
                 'booking_id' => 6, // Đảm bảo booking_id tồn tại
-                'created_at' => now(),
             ],
             [
                 'user_id' => 7,
                 'booking_id' => 7, // Đảm bảo booking_id tồn tại
-                'created_at' => now(),
             ],
             [
                 'user_id' => 8,
                 'booking_id' => 8, // Đảm bảo booking_id tồn tại
-                'created_at' => now(),
             ],
             [
                 'user_id' => 9,
                 'booking_id' => 9, // Đảm bảo booking_id tồn tại
-                'created_at' => now(),
             ],
             [
                 'user_id' => 10,
                 'booking_id' => 10, // Đảm bảo booking_id tồn tại
-                'created_at' => now(),
             ],
         ]);
     }
