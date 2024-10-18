@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::disableForeignKeyConstraints();
 
         Schema::create('reviews', function (Blueprint $table) {
-            $table->integer('review_id')->primary()->autoIncrement();
+            $table->integer('review_id')->autoIncrement();
             $table->foreign('review_id')->references('hotel_id')->on('hotels');
             $table->integer('hotel_id');
             $table->foreign('hotel_id')->references('user_id')->on('user');

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('meta_desc');
             $table->boolean('status');
             $table->string('url_seo');
+            $table->string('img');
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
         });

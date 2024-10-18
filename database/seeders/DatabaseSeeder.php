@@ -32,6 +32,8 @@ class DatabaseSeeder extends Seeder
             RoomImageTableSeeder::class,
             RoomsTableSeeder::class,
             RoomTypeTableSeeder::class,
+            BookingTableSeeder::class,
+            CitiesTableSeeder::class,
         ]);
 
     }

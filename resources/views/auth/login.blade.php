@@ -116,7 +116,7 @@
                             <button class="btn social-btn flex-grow-1 me-2">
                                 <img src="{{asset('images/facebook.png')}}" alt="Facebook icon"
                                     class="me-2 icon-facebook">
-                                Đăng nhập với tài khoản facebook
+                                Đăng nhập với facebook
                             </button>
                             <button class="btn social-btn flex-grow-1 ms-2">
                                 <img src="{{asset('images/google.png')}}" alt="Google icon" class="me-2 icon-goole">

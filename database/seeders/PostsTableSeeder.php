@@ -13,7 +13,7 @@ class PostsTableSeeder extends Seeder
      */
     public function run(): void
     {
-       Posts::insert([
+        Posts::insert([
             [
                 'title' => 'Khách sạn sang trọng nhất Việt Nam',
                 'description' => 'Khám phá những khách sạn sang trọng và đẳng cấp tại Việt Nam.',
@@ -21,6 +21,7 @@ class PostsTableSeeder extends Seeder
                 'meta_desc' => 'Khách sạn sang trọng tại Việt Nam.',
                 'status' => true,
                 'url_seo' => 'khach-san-sang-trong-nhat-viet-nam',
+                'img' => 'hotel_luxury_vietnam.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -31,6 +32,7 @@ class PostsTableSeeder extends Seeder
                 'meta_desc' => 'Khách sạn bãi biển đẹp nhất.',
                 'status' => true,
                 'url_seo' => 'top-10-khach-san-bai-bien-dep-nhat',
+                'img' => 'beach_hotel_top10.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -41,6 +43,7 @@ class PostsTableSeeder extends Seeder
                 'meta_desc' => 'Khách sạn bình dân tại Hà Nội.',
                 'status' => true,
                 'url_seo' => 'khach-san-binh-dan-tai-ha-noi',
+                'img' => 'budget_hotel_hanoi.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -51,6 +54,7 @@ class PostsTableSeeder extends Seeder
                 'meta_desc' => 'Khách sạn có dịch vụ tốt nhất ở Đà Nẵng.',
                 'status' => true,
                 'url_seo' => 'khach-san-co-dich-vu-tot-nhat-o-da-nang',
+                'img' => 'best_service_hotel_danang.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -61,6 +65,7 @@ class PostsTableSeeder extends Seeder
                 'meta_desc' => 'Khách sạn thân thiện với môi trường tại Hội An.',
                 'status' => true,
                 'url_seo' => 'khach-san-than-thien-voi-moi-truong-tai-hoi-an',
+                'img' => 'eco_friendly_hotel_hoian.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -71,6 +76,7 @@ class PostsTableSeeder extends Seeder
                 'meta_desc' => 'Khách sạn phong cách cổ điển tại Huế.',
                 'status' => true,
                 'url_seo' => 'khach-san-phong-cach-co-dien-tai-hue',
+                'img' => 'classic_hotel_hue.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -81,6 +87,7 @@ class PostsTableSeeder extends Seeder
                 'meta_desc' => 'Khách sạn gần các điểm du lịch tại Nha Trang.',
                 'status' => true,
                 'url_seo' => 'khach-san-gan-cac-diem-du-lich-tai-nha-trang',
+                'img' => 'hotel_near_tourist_spots_nhatrang.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -91,6 +98,7 @@ class PostsTableSeeder extends Seeder
                 'meta_desc' => 'Khách sạn lý tưởng cho tuần trăng mật.',
                 'status' => true,
                 'url_seo' => 'khach-san-ly-tuong-cho-tuan-trang-mat',
+                'img' => 'honeymoon_hotel.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -101,6 +109,7 @@ class PostsTableSeeder extends Seeder
                 'meta_desc' => 'Khách sạn có hồ bơi đẹp tại Phú Quốc.',
                 'status' => true,
                 'url_seo' => 'khach-san-co-ho-boi-dep-tai-phu-quoc',
+                'img' => 'pool_view_hotel_phuquoc.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -111,6 +120,7 @@ class PostsTableSeeder extends Seeder
                 'meta_desc' => 'Kinh nghiệm đặt phòng khách sạn trực tuyến.',
                 'status' => true,
                 'url_seo' => 'kinh-nghiem-dat-phong-khach-san-truc-tuyen',
+                'img' => 'online_booking_tips.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

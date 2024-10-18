@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::create('booking', function (Blueprint $table) {
+        Schema::create('bookings', function (Blueprint $table) {
             $table->increments('booking_id');
             $table->foreign('booking_id')->references('user_id')->on('user');
             $table->integer('user_id');
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->date('check_in')->nullable();
             $table->date('check_out');
             $table->double('total_price');
-            $table->enum('status', [""]);
+            $table->enum('status', ['confirmed','cancelled','pending']);
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
         });
