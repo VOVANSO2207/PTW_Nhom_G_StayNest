@@ -16,8 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     return response.json();
                 })
                 .then(post => {
-
-                    // Hàm để giới hạn ký tự và thêm "..." nếu cần
+                    // Hàm giới hạn ký tự và cập nhật thông tin modal
                     const limitText = (text, maxLength = 10) => {
                         return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
                     };
@@ -33,16 +32,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     const imageUrl = post.img ? `/images/${post.img}` : '/path/to/default/image.jpg';
                     document.getElementById('modalImage').src = imageUrl;
 
-
                     // Hiển thị modal
                     const modal = new bootstrap.Modal(document.getElementById('postDetailModal'));
                     modal.show();
                 })
                 .catch(error => {
-                    console.error('There was a problem with the fetch operation:', error);
+                    console.error('Có vấn đề với yêu cầu fetch:', error);
                 });
         });
     });
 });
+
 
 // POST_ADD.BLADE.PHP - ADD POST

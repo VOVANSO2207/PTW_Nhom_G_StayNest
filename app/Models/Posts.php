@@ -18,4 +18,19 @@ class Posts extends Model
         'url_seo',
         'img',
     ];
+    protected $primaryKey = 'post_id';
+
+    public static function createPost(array $data)
+    {
+        return self::create($data);
+    }
+    public static function findPostById($post_id)
+    {
+        return self::where('post_id', $post_id)->first();
+    }
+    public static function getAllPosts($perPage = 5)
+    {
+        return self::orderBy('created_at', 'DESC')->paginate($perPage);
+    }
+
 }
