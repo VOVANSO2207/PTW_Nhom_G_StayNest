@@ -11,7 +11,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('storage/img/logo/logo.jpg') }}">
+    {{-- <link rel="icon" href="{{ asset('storage/img/logo/logo.jpg') }}"> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -22,22 +22,22 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('storage/css/multi-select-tag.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('storage/css/multi-select-tag.css') }}"> --}}
     <!-- Icons. Uncomment required icon fonts -->
     <link rel="stylesheet" href="{{ asset('fonts/boxicons.css') }}" />
 
     <!-- Core CSS -->
     <link rel="stylesheet" href="{{ asset('/assets/vendor/css/core.css') }}"
         class="template-customizer-core-css" />
-    <link rel="stylesheet" href="{{ asset('/assets/vendor/css/theme-default.css') }}"
-        class="template-customizer-theme-css" />
+    {{-- <link rel="stylesheet" href="{{ asset('/assets/vendor/css/theme-default.css') }}"
+        class="template-customizer-theme-css" /> --}}
     <link rel="stylesheet" href="{{ asset('/assets/css/demo.css') }}" />
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="{{ asset('/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
 
     <link rel="stylesheet" href="{{ asset('/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
-
+    <link rel="stylesheet" href="{{asset('/css/room.css')}}">
     <!-- Page CSS -->
 
     <!-- Helpers -->
@@ -51,6 +51,15 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ asset('/assets/js/config.js') }}"></script>
+    
+        {{-- SWIPER --}}
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    {{-- SELECT SEARCH  --}}
+    <!-- Add this to your <head> section -->
+{{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+         --}}
 </head>
 
 <body>
@@ -63,7 +72,7 @@
 
     <!-- footer -->
     @include('admin/layouts/footer')
-    <script src="{{ asset('/js/multi-select-tag.js') }}"></script>
+    {{-- <script src="{{ asset('/js/multi-select-tag.js') }}"></script> --}}
 
     <script src="{{ asset('/assets/vendor/libs/jquery/jquery.js') }}"></script>
     <script src="{{ asset('/assets/vendor/libs/popper/popper.js') }}"></script>

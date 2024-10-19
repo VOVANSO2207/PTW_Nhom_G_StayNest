@@ -16,6 +16,8 @@ class RoomsTableSeeder extends Seeder
         Rooms::insert([
             [
                 'hotel_id' => 1,
+                'room_type_id' => 1,
+                'name' => 'Phòng LabuRa Hải Âu 1',  // Thêm tên phòng
                 'price' => 150.00,
                 'discount_percent' => 10,
                 'capacity' => 2,
@@ -23,6 +25,8 @@ class RoomsTableSeeder extends Seeder
             ],
             [
                 'hotel_id' => 1,
+                'room_type_id' => 1,
+                'name' => 'Phòng LabuRa Hải Âu 2',  // Thêm tên phòng
                 'price' => 100.00,
                 'discount_percent' => 5,
                 'capacity' => 3,
@@ -30,6 +34,8 @@ class RoomsTableSeeder extends Seeder
             ],
             [
                 'hotel_id' => 2,
+                'room_type_id' => 1,
+                'name' => 'Phòng gia đình tại Hà Nội', // Thêm tên phòng
                 'price' => 200.00,
                 'discount_percent' => 15,
                 'capacity' => 4,
@@ -37,6 +43,8 @@ class RoomsTableSeeder extends Seeder
             ],
             [
                 'hotel_id' => 2,
+                'room_type_id' => 1,
+                'name' => 'Phòng sang trọng tại Hà Nội', // Thêm tên phòng
                 'price' => 250.00,
                 'discount_percent' => 20,
                 'capacity' => 5,
@@ -44,6 +52,8 @@ class RoomsTableSeeder extends Seeder
             ],
             [
                 'hotel_id' => 3,
+                'room_type_id' => 1,
+                'name' => 'Phòng ấm cúng Hồ Chí Minh', // Thêm tên phòng
                 'price' => 120.00,
                 'discount_percent' => 10,
                 'capacity' => 2,
@@ -51,6 +61,8 @@ class RoomsTableSeeder extends Seeder
             ],
             [
                 'hotel_id' => 3,
+                'room_type_id' => 1,
+                'name' => 'Phòng Superior Hồ Chí Minh', // Thêm tên phòng
                 'price' => 180.00,
                 'discount_percent' => 25,
                 'capacity' => 3,
@@ -58,6 +70,8 @@ class RoomsTableSeeder extends Seeder
             ],
             [
                 'hotel_id' => 4,
+                'room_type_id' => 1,
+                'name' => 'Phòng Penthouse Nha Trang', // Thêm tên phòng
                 'price' => 220.00,
                 'discount_percent' => 30,
                 'capacity' => 2,
@@ -65,6 +79,8 @@ class RoomsTableSeeder extends Seeder
             ],
             [
                 'hotel_id' => 4,
+                'room_type_id' => 1,
+                'name' => 'Phòng kinh tế Nha Trang', // Thêm tên phòng
                 'price' => 140.00,
                 'discount_percent' => 5,
                 'capacity' => 4,
@@ -72,6 +88,8 @@ class RoomsTableSeeder extends Seeder
             ],
             [
                 'hotel_id' => 5,
+                'room_type_id' => 2,
+                'name' => 'Phòng hiện đại Đà Lạt', // Thêm tên phòng
                 'price' => 175.00,
                 'discount_percent' => 15,
                 'capacity' => 3,
@@ -79,6 +97,8 @@ class RoomsTableSeeder extends Seeder
             ],
             [
                 'hotel_id' => 5,
+                'room_type_id' => 2,
+                'name' => 'Phòng Executive Đà Lạt', // Thêm tên phòng
                 'price' => 210.00,
                 'discount_percent' => 20,
                 'capacity' => 2,

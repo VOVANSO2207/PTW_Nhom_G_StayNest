@@ -20,7 +20,7 @@ return new class extends Migration
             $table->char('image_url');
             $table->dateTime('uploaded_at');
         });
-
+            
         Schema::enableForeignKeyConstraints();
     }
 

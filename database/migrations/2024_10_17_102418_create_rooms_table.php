@@ -16,11 +16,14 @@ return new class extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->increments('room_id');
             $table->integer('hotel_id');
-            $table->foreign('hotel_id')->references('hotel_id')->on('hotels');
+            $table->string('name');
+            // $table->foreign('hotel_id')->references('hotel_id')->on('hotels');
             $table->double('price');
             $table->integer('discount_percent');
             $table->integer('capacity');
             $table->text('description');
+            $table->unsignedInteger('room_type_id'); // Tạo cột khóa ngoại
+            // $table->foreign('room_type_id')->references('room_type_id')->on('room_types');
             $table->timestamps();
         });
 
