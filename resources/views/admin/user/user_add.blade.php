@@ -5,7 +5,6 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card mb-4">
-                <!-- Account -->
                 <hr class="my-0" />
                 <div class="card-body">
                     <form id="formAccountSettings" method="POST" action="{{ route('user_add') }}"
@@ -14,8 +13,11 @@
                         <div class="row">
                             <div class="mb-3 col-md-7">
                                 <label class="form-label">Username</label>
-                                <input class="form-control" type="text" name="username" id="username"
-                                    placeholder="Username" required />
+                                <input class="form-control @error('username') is-invalid @enderror" type="text" name="username" id="username"
+                                    placeholder="Username" required value="{{ old('username') }}" />
+                                @error('username')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="mb-3 col-md-3">
                                 <label class="form-label">Role</label>
@@ -26,18 +28,27 @@
                             </div>
                             <div class="mb-3 col-md-7">
                                 <label class="form-label">Email</label>
-                                <input class="form-control" type="email" id="email" name="email" placeholder="Email"
-                                    required />
+                                <input class="form-control @error('email') is-invalid @enderror" type="email" id="email" name="email" placeholder="Email"
+                                    required value="{{ old('email') }}" />
+                                @error('email')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="mb-3 col-md-7">
                                 <label class="form-label">Password</label>
-                                <input class="form-control" type="password" id="password" name="password"
+                                <input class="form-control @error('password') is-invalid @enderror" type="password" id="password" name="password"
                                     placeholder="Password" required />
+                                @error('password')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="mb-3 col-md-7">
                                 <label class="form-label">Phonenumber</label>
-                                <input class="form-control" type="text" id="phonenumber" name="phone_number"
-                                    placeholder="Phonenumber" required />
+                                <input class="form-control @error('phone_number') is-invalid @enderror" type="text" id="phonenumber" name="phone_number"
+                                    placeholder="Phonenumber" required value="{{ old('phone_number') }}" />
+                                @error('phone_number')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="mb-3 col-md-7">
                                 <label class="form-label">Avatar</label>
@@ -93,6 +104,5 @@
         </div>
     </div>
 </div>
-<!-- / Content -->
 
 @endsection

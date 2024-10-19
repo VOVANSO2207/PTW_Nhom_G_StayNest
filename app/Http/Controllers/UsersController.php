@@ -30,12 +30,25 @@ class UsersController extends Controller
     {
         // Xác thực dữ liệu
         $validator = Validator::make($request->all(), [
-            'username' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6',
-            'phone_number' => 'required|string',
-            'role_id' => 'required|integer',
-            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Avatar là không bắt buộc
+            'username' => 'required|string|regex:/^[a-zA-Z0-9]*$/|min:6|max:25|not_regex:/\s/',
+            'email' => 'required|string|email|max:255|unique:users|regex:/^[^\s@]+@[^\s@]+\.[^\s@]+$/',
+            'password' => 'required|string|min:8|regex:/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/',
+            'phone_number' => 'required|string|min:10|max:15|regex:/^\d+$/',
+            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ], [
+            'username.required' => 'Vui lòng nhập tên tài khoản',
+            'username.regex' => 'Tên tài khoản không chứa kí tự đặc biệt',
+            'username.min' => 'Tên đăng nhập phải có từ 6 đến 25 ký tự.',
+            'username.max' => 'Tên đăng nhập phải có từ 6 đến 25 ký tự.',
+            'username.not_regex' => 'Tên đăng nhập không được chứa khoảng trắng.',
+            'email.required' => 'Vui lòng nhập địa chỉ email',
+            'email.email' => 'Địa chỉ email không hợp lệ',
+            'email.unique' => 'Địa chỉ email này đã tồn tại. Vui lòng sử dụng địa chỉ khác.',
+            'password.required' => 'Vui lòng nhập mật khẩu',
+            'password.min' => 'Mật khẩu phải chứa ít nhất 8 ký tự, bao gồm cả chữ và số',
+            'password.regex' => 'Mật khẩu phải chứa ít nhất một ký tự đặc biệt (ví dụ: @, #, $, %, etc.)',
+            'phone_number.required' => 'Vui lòng nhập số điện thoại',
+            'phone_number.regex' => 'Số điện thoại không hợp lệ. Vui lòng nhập số điện thoại di động gồm 10 chữ số hoặc số điện thoại cố định theo định dạng đúng. Đảm bảo rằng số điện thoại bao gồm mã mạng và không chứa ký tự đặc biệt'
         ]);
 
         // Kiểm tra xem có lỗi xác thực không
@@ -50,7 +63,6 @@ class UsersController extends Controller
             // Di chuyển ảnh đến thư mục 'public/images'
             $request->file('avatar')->move(public_path('images'), $avatarName);
         } else {
-            // Sử dụng ảnh đại diện mặc định nếu không có ảnh tải lên
             $avatarName = 'default-avatar.png';
         }
 
@@ -61,12 +73,13 @@ class UsersController extends Controller
         $user->password = Hash::make($request->password);
         $user->phone_number = $request->phone_number;
         $user->role_id = $request->role_id;
-        $user->status = true; // Đặt giá trị status mặc định là true
-        $user->avatar = $avatarName; // Gán tên ảnh cho trường avatar
+        $user->status = true;
+        $user->avatar = $avatarName;
         $user->save();
 
-        return redirect()->route('admin.viewuser')->with('success', 'User added successfully!'); // Chuyển hướng lại trang danh sách người dùng sau khi thêm thành công
+        return redirect()->route('admin.viewuser')->with('success', 'User added successfully!');
     }
+
 
     public function searchUsers(Request $request)
     {
