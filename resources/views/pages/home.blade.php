@@ -497,40 +497,21 @@
     </div>
     <section class="middle-staynest container mt-5">
         <div class="search-bar-staynest color-light">
-            <form action="{{ route('search') }}" method="GET" class="row d-flex justify-content-center">
+            <form action="{{ route('hotels.search') }}" method="GET" class="row d-flex justify-content-center">
                 @csrf
                 <div class="col-md-3 search-header">
                     <div class="form-group">
                         <select name="location" class="form-control-staynest select2" style="width: 100%;" tabindex="-1"
                             aria-hidden="true" required>
-                            <!-- <option value="">Địa điểm cần tìm</option>
-                            <option value="ha-noi">Hà Nội</option>
-                            <option value="ho-chi-minh">TP. Hồ Chí Minh</option>
-                            <option value="ha-long">Vịnh Hạ Long</option>
-                            <option value="hue">Huế</option>
-                            <option value="da-nang">Đà Nẵng</option>
-                            <option value="hoi-an">Hội An</option>
-                            <option value="nha-trang">Nha Trang</option>
-                            <option value="phu-quoc">Đảo Phú Quốc</option>
-                            <option value="sapa">Sapa</option>
-                            <option value="moc-chau">Mộc Châu</option>
-                            <option value="can-tho">Cần Thơ</option>
-                            <option value="quang-binh">Quảng Bình</option>
-                            <option value="dalat">Đà Lạt</option> -->
                             <option value="">Địa điểm cần tìm</option>
-                            <option value="1">Hà Nội</option>
-                            <option value="2">TP. Hồ Chí Minh</option>
-                            <option value="3">Vịnh Hạ Long</option>
-                            <option value="4">Huế</option>
-                            <option value="5">Đà Nẵng</option>
-                            <option value="6">Hội An</option>
-                            <option value="7">Nha Trang</option>
-                            <option value="8">Đảo Phú Quốc</option>
-                            <option value="9">Sapa</option>
-                            <option value="10">Mộc Châu</option>
-                            <option value="11">Cần Thơ</option>
-                            <option value="12">Quảng Bình</option>
-                            <option value="13">Đà Lạt</option>
+                            @if ($cities->isEmpty())
+                                <option value="">Chưa có địa điểm hiển thị</option>
+                            @else
+                                @foreach ($cities as $citie)
+                                    <option value="{{ $citie->city_id }}" id="{{ $citie->city_id }}">{{ $citie->city_name }}
+                                    </option>
+                                @endforeach
+                            @endif
                         </select>
                     </div>
                 </div>

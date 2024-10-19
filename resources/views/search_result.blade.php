@@ -635,6 +635,13 @@
 
                 <div class="tab_content">
                     <div id="low-to-high" class="tab_item active">
+                        <div class="d-flex">
+                            <p>Ngày đi: {{ isset($daterange) ? explode(' - ', $daterange)[0] : '' }} </p>
+                            <p class="ms-2">Ngày về: {{ isset($daterange) ? explode(' - ', $daterange)[1] : '' }} </p>
+                            <p class="ms-2">Số phòng: {{ $rooms }} </p>
+                            <p class="ms-2">Số người lớn: {{ $adults }} </p>
+                            <p class="ms-2">Số trẻ em: {{ $children }} </p>
+                        </div>
                         @if($hotels->isEmpty())
                             <p>Không tìm thấy khách sạn nào.</p>
                         @else
@@ -660,15 +667,21 @@
                                     <div class="hotel-info row">
                                         <div class="col-md-8">
                                             <p class="reviews">Có {{ $hotel->rating }} lượt đánh giá</p>
-                                            <h3><i class="fa fa-map-marker"></i> {{ $hotel->location }}</h3>
-                                            <h4><i class="fa fa-hotel"></i>{{ var_dump($hotel->$hotel_name)  }}</h4>
+                                            <h3><i class="fa fa-map-marker"></i>{{ $hotel->hotel_name }}</h3>
+                                            <h4><i class="fa fa-hotel"></i></h4>
                                             <div class="price-info">
                                                 <span class="old-price">2.337.999 đ</span>
                                                 <span class="discount">-25%</span>
                                                 <span class="new-price">1.763.668 đ</span>
                                             </div>
                                             <div class="rating">
-                                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    @if ($i <= $hotel->rating)
+                                                        <span>★</span> <!-- Sao vàng -->
+                                                    @else
+                                                        <span>☆</span> <!-- Sao trống -->
+                                                    @endif
+                                                @endfor
                                             </div>
                                             <div class="status">
                                                 <span class="status-available">ĐƠN</span>
