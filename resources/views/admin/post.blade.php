@@ -23,7 +23,7 @@
 <div class="content-wrapper">
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="card">
-            <h5 class="card-header" style="background-color: #696cff; border-color: #696cff; color:#fff">POST</h5>
+            <h5 class="card-header" style="background-color: #696cff; border-color: #696cff; color:#fff">BLOG</h5>
             <div class="add">
                 <a class="btn btn-success" href="{{ route('post_add') }}">Add</a>
             </div>
@@ -66,7 +66,7 @@
                 </table>
             </div>
             <div class="d-flex justify-content-center mt-3">
-                {{$posts->links('pagination::bootstrap-4')}}
+            {{ $posts->appends(['csrf_token' => csrf_token()])->links('pagination::bootstrap-4') }}
             </div>
         </div>
     </div>
@@ -115,7 +115,7 @@
             </div>
             <div class="modal-footer" style="display: flex; justify-content: space-between;">
                 <a id="editPostButton" class="btn btn-info" href="#">Edit</a>
-                <form id="deleteForm" action="#" method="POST" style="display: inline-block;">
+                <form id="deleteForm"  style="display: inline-block;">
                     @csrf
                     <button type="submit" class="btn btn-danger" id="deletePostButton">Delete</button>
                 </form>
