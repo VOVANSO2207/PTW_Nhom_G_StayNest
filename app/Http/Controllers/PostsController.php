@@ -9,10 +9,10 @@ class PostsController extends Controller
 {
     public function viewPost()
     {
-        $posts = Posts::orderBy('created_at', 'DESC')->paginate(5);
+        $posts = Posts::getAllPosts();
         return view('admin.post', compact('posts'));
     }
-
+    
     public function postAdd()
     {
         return view('admin.post_add');
@@ -20,7 +20,7 @@ class PostsController extends Controller
 
     public function getPostDetail($post_id)
     {
-        $post = Posts::where('post_id', $post_id)->first();
+        $post = Posts::findPostById($post_id);
 
         if (!$post) {
             return response()->json(['error' => 'Bài viết không tồn tại'], 404);
@@ -36,9 +36,11 @@ class PostsController extends Controller
             'img' => $post->img
         ]);
     }
+
     public function store(Request $request)
     {
         $post = new Posts();
+
         $post->title = $request->title;
         $post->description = $request->description;
         $post->content = $request->content1;
@@ -52,11 +54,11 @@ class PostsController extends Controller
             $file->move(public_path('images'), $filename);
             $post->img = $filename;
         }
-
-        $post->save();
-
+        Posts::createPost($post->toArray());
         return redirect()->route('admin.viewpost')->with('success', 'Thêm bài viết thành công.');
     }
+
+
 
 
 }
