@@ -7,14 +7,26 @@
             <div class="card mb-4">
                 <hr class="my-0" />
                 <div class="card-body">
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <form id="formAccountSettings" method="POST" action="{{ route('user_add') }}"
                         enctype="multipart/form-data">
                         @csrf <!-- Token để bảo mật cho form -->
                         <div class="row">
                             <div class="mb-3 col-md-7">
                                 <label class="form-label">Username</label>
-                                <input class="form-control @error('username') is-invalid @enderror" type="text" name="username" id="username"
-                                    placeholder="Username" required value="{{ old('username') }}" />
+                                <input class="form-control @error('username') is-invalid @enderror" type="text"
+                                    name="username" id="username" placeholder="Username" required
+                                    value="{{ old('username') }}" />
                                 @error('username')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -28,24 +40,25 @@
                             </div>
                             <div class="mb-3 col-md-7">
                                 <label class="form-label">Email</label>
-                                <input class="form-control @error('email') is-invalid @enderror" type="email" id="email" name="email" placeholder="Email"
-                                    required value="{{ old('email') }}" />
+                                <input class="form-control @error('email') is-invalid @enderror" type="email" id="email"
+                                    name="email" placeholder="Email" required value="{{ old('email') }}" />
                                 @error('email')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="mb-3 col-md-7">
                                 <label class="form-label">Password</label>
-                                <input class="form-control @error('password') is-invalid @enderror" type="password" id="password" name="password"
-                                    placeholder="Password" required />
+                                <input class="form-control @error('password') is-invalid @enderror" type="password"
+                                    id="password" name="password" placeholder="Password" required />
                                 @error('password')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="mb-3 col-md-7">
                                 <label class="form-label">Phonenumber</label>
-                                <input class="form-control @error('phone_number') is-invalid @enderror" type="text" id="phonenumber" name="phone_number"
-                                    placeholder="Phonenumber" required value="{{ old('phone_number') }}" />
+                                <input class="form-control @error('phone_number') is-invalid @enderror" type="text"
+                                    id="phonenumber" name="phone_number" placeholder="Phonenumber" required
+                                    value="{{ old('phone_number') }}" />
                                 @error('phone_number')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -80,16 +93,6 @@
                                 }
                             </script>
                         </div>
-
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
 
                         <div class="mt-2" style="text-align: right">
                             <button type="reset" class="btn btn-outline-secondary">Reset</button>
