@@ -27,7 +27,6 @@ Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 // Admin - Post
 Route::get('/admin/post', [PostsController::class, 'viewPost'])->name('admin.viewpost');
 Route::get('/admin/post/add', [PostsController::class, 'postAdd'])->name('post_add');
-// Route::get('/admin/post/{post_id}/detail', [PostsController::class, 'detail'])->name('post.detail');
 Route::post('admin/post/store', [PostsController::class, 'store'])->name('admin.post.store');
 Route::get('/posts/{post_id}/detail', action: [PostsController::class, 'getPostDetail'])->name('post.detail');
 

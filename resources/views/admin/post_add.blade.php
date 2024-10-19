@@ -65,12 +65,10 @@
                         </div>
                     </form>
                 </div>
-                <!-- /Account -->
             </div>
         </div>
     </div>
 </div>
-<!-- / Content -->
 <script>
     window.onload = function () {
         CKEDITOR.replace('content1', {
@@ -96,9 +94,8 @@
 
     $('#postForm').on('submit', function (event) {
         event.preventDefault();
-        var img = $('#upload')[0].files[0]; // Lấy tệp hình ảnh từ input
+        var img = $('#upload')[0].files[0];
 
-        // Lấy dữ liệu từ các trường khác
         var title = $('#title').val();
         var description = CKEDITOR.instances.description.getData();
         var content = CKEDITOR.instances.content1.getData();
@@ -106,10 +103,10 @@
         var statusValue = $('#status option:selected').val();
         var url_seo = $('#url_seo').val();
 
+        
 
-       
         var formData = new FormData();
-        formData.append('_token', '{{ csrf_token() }}'); // Thêm token CSRF
+        formData.append('_token', '{{ csrf_token() }}');
         formData.append('title', title);
         formData.append('description', description);
         formData.append('content1', content);
@@ -117,7 +114,7 @@
         formData.append('status', statusValue);
         formData.append('url_seo', url_seo);
         if (img) {
-            formData.append('fileUpload', img); 
+            formData.append('fileUpload', img);
         }
 
         // Gửi dữ liệu qua AJAX
@@ -125,7 +122,7 @@
             url: "{{ route('admin.post.store') }}",
             method: 'POST',
             data: formData,
-            contentType: false, 
+            contentType: false,
             processData: false,
             success: function (response) {
                 alert('Thêm bài viết thành công.');
@@ -146,15 +143,13 @@
     });
 
     function resetForm() {
-        // Đặt lại giá trị của tất cả các trường trong form
-        $('#postForm')[0].reset(); // Reset các trường input
+        $('#postForm')[0].reset();
 
-        // Đặt lại CKEditor
         CKEDITOR.instances['content1'].setData('');
         CKEDITOR.instances['description'].setData('');
 
-        $("#fileUpload").attr("src", "{{ asset('/images/img-upload.jpg') }}"); // Đặt lại hình ảnh mặc định
-        $("#url_seo").val(''); // Xóa giá trị URL SEO
+        $("#fileUpload").attr("src", "{{ asset('/images/img-upload.jpg') }}");
+        $("#url_seo").val(''); O
     }
 </script>
 @endsection

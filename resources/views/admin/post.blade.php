@@ -109,19 +109,19 @@
                     </div>
                     <div class="post-detail-item">
                         <strong>Image:</strong>
-                        <img id="modalImage" style="width: 100%; height: auto; max-width: 300px;" alt="Post Image">
+                        <img id="modalImage" style="width: 100%; height: auto; max-width: 200px;" alt="">
                         </div>
                 </div>
             </div>
             <div class="modal-footer" style="display: flex; justify-content: space-between;">
-                <a id="editPostButton" class="btn btn-info" href="#">Edit</a> <!-- Nút Edit -->
+                <a id="editPostButton" class="btn btn-info" href="#">Edit</a>
                 <form id="deleteForm" action="#" method="POST" style="display: inline-block;">
                     @csrf
-                    <button type="submit" class="btn btn-danger" id="deletePostButton">Delete</button> <!-- Nút Delete -->
+                    <button type="submit" class="btn btn-danger" id="deletePostButton">Delete</button>
                 </form>
             </div>
             <div class="modal-footer" style="width: 100%; position: relative; bottom: 0;">
-                <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Close</button> <!-- Nút Close ở dưới cùng -->
+                <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Close</button> 
             </div>
         </div>
     </div>
