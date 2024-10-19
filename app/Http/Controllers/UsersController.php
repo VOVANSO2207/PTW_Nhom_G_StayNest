@@ -61,7 +61,7 @@ class UsersController extends Controller
         $user->password = Hash::make($request->password);
         $user->phone_number = $request->phone_number;
         $user->role_id = $request->role_id;
-        $user->status = false; // Đặt giá trị status mặc định là false
+        $user->status = true; // Đặt giá trị status mặc định là true
         $user->avatar = $avatarName; // Gán tên ảnh cho trường avatar
         $user->save();
 
