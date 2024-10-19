@@ -111,48 +111,61 @@ class UsersController extends Controller
         return redirect()->route('admin.viewuser')->with('success', 'User deleted successfully!'); // Chuyển hướng về danh sách sau khi xóa
     }
     public function update(Request $request, $id)
-    {
-        $user = User::findOrFail($id);
+{
+    $user = User::findOrFail($id);
 
-        // Xác thực dữ liệu nhập vào
-        $request->validate([
-            'username' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'phone_number' => 'required|string|max:20',
-            'role_id' => 'required|integer',
-            'status' => 'required|boolean',
-            'avatar' => 'nullable|image|max:20480', // Kích thước tối đa của hình ảnh
-            'password' => 'nullable|string|min:6|confirmed' // Thay đổi để cho phép để trống
-        ]);
+    // Xác thực dữ liệu nhập vào
+    $validator = Validator::make($request->all(), [
+        'username' => 'required|string|regex:/^[a-zA-Z0-9]*$/|min:6|max:25|not_regex:/\s/',
+        'phone_number' => 'required|string|min:10|max:15|regex:/^\d+$/',
+        'role_id' => 'required|integer',
+        'status' => 'required|boolean',
+        'avatar' => 'nullable|image|max:20480',
+        // 'password' => 'nullable|string|min:6|confirmed|regex:/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/'
+    ], [
+        'username.required' => 'Vui lòng nhập tên tài khoản',
+        'username.regex' => 'Tên tài khoản không chứa kí tự đặc biệt',
+        'username.min' => 'Tên đăng nhập phải có từ 6 đến 25 ký tự.',
+        'username.max' => 'Tên đăng nhập phải có từ 6 đến 25 ký tự.',
+        'username.not_regex' => 'Tên đăng nhập không được chứa khoảng trắng.',
+        'phone_number.required' => 'Vui lòng nhập số điện thoại',
+        'phone_number.regex' => 'Số điện thoại không hợp lệ.',
+        // 'password.regex' => 'Mật khẩu phải chứa ít nhất một ký tự đặc biệt (ví dụ: @, #, $, %, etc.)',
+    ]);
 
-        // Cập nhật thông tin người dùng
-        $user->username = $request->username;
-        $user->email = $request->email;
-        $user->phone_number = $request->phone_number;
-        $user->role_id = $request->role_id;
-        $user->status = $request->status;
-
-        // Kiểm tra nếu có mật khẩu mới được nhập
-        if ($request->filled('password')) {
-            $user->password = bcrypt($request->password); // Mã hóa mật khẩu
-        }
-
-        // Xử lý ảnh đại diện
-        if ($request->hasFile('avatar')) {
-            // Xóa ảnh cũ nếu có
-            if ($user->avatar && file_exists(public_path('images/' . $user->avatar))) {
-                unlink(public_path('images/' . $user->avatar));
-            }
-
-            // Lưu trữ ảnh mới
-            $avatarFile = $request->file('avatar');
-            $avatarName = time() . '_' . $avatarFile->getClientOriginalName(); // Tạo tên file mới
-            $avatarFile->move(public_path('images'), $avatarName); // Di chuyển file vào thư mục public/images
-            $user->avatar = $avatarName; // Cập nhật tên file ảnh
-        }
-
-        $user->save(); // Lưu thay đổi
-
-        return redirect()->route('admin.viewuser')->with('success', 'User updated successfully!');
+    if ($validator->fails()) {
+        return redirect()->back()->withErrors($validator)->withInput();
     }
+
+    // Cập nhật thông tin người dùng
+    $user->username = $request->username;
+    $user->email = $request->email; // Vẫn giữ dòng này để cập nhật email
+    $user->phone_number = $request->phone_number;
+    $user->role_id = $request->role_id;
+    $user->status = $request->status;
+
+    // Kiểm tra nếu có mật khẩu mới được nhập
+    if ($request->filled('password')) {
+        $user->password = Hash::make($request->password);
+    }
+
+    // Xử lý ảnh đại diện
+    if ($request->hasFile('avatar')) {
+        // Xóa ảnh cũ nếu có
+        if ($user->avatar && file_exists(public_path('images/' . $user->avatar))) {
+            unlink(public_path('images/' . $user->avatar));
+        }
+
+        // Lưu trữ ảnh mới
+        $avatarFile = $request->file('avatar');
+        $avatarName = time() . '_' . $avatarFile->getClientOriginalName();
+        $avatarFile->move(public_path('images'), $avatarName);
+        $user->avatar = $avatarName;
+    }
+
+    $user->save();
+
+    return redirect()->route('admin.viewuser')->with('success', 'User updated successfully!');
+}
+
 }

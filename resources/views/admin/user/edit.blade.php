@@ -1,81 +1,74 @@
-@extends('admin.layouts.master')
+<form id="formAccountSettings" method="POST"
+    action="{{ route('admin.user.update', $user->user_id) }}" enctype="multipart/form-data">
+    @csrf
+    @method('PUT')
 
-@section('admin-container')
-<div class="container-xxl flex-grow-1 container-p-y">
+    <!-- Hiển thị thông báo lỗi -->
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <div class="row">
-        <div class="col-md-12">
-            <div class="card mb-4">
-                <hr class="my-0" />
-                <div class="card-body">
-                    <form id="formAccountSettings" method="POST" action="{{ route('admin.user.update', $user->user_id) }}" enctype="multipart/form-data">
-                        @csrf
-                        @method('PUT')
+        <div class="mb-3 col-md-6">
+            <label for="username" class="form-label">Tên tài khoản</label>
+            <input class="form-control" type="text" id="username" name="username"
+                value="{{ old('username', $user->username) }}" autofocus />
+        </div>
 
-                        <!-- Hiển thị thông báo lỗi -->
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
+        <div class="mb-3 col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <input class="form-control" type="text" id="email" name="email"
+                value="{{ old('email', $user->email) }}" />
+        </div>
 
-                        <div class="row">
-                            <div class="mb-3 col-md-7">
-                                <label class="form-label">Username</label>
-                                <input class="form-control" type="text" name="username" id="username" placeholder="username" value="{{ old('username', $user->username) }}" required />
-                            </div>
-                            <div class="mb-3 col-md-5">
-                                <label class="form-label">Email</label>
-                                <input class="form-control" type="email" name="email" id="email" placeholder="Email" value="{{ old('email', $user->email) }}" required />
-                            </div>
-                        </div>
+        <div class="mb-3 col-md-6">
+            <label for="phone_number" class="form-label">Số điện thoại</label>
+            <input class="form-control" type="text" id="phone_number" name="phone_number"
+                value="{{ old('phone_number', $user->phone_number) }}" />
+        </div>
 
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                                <label class="form-label">Phone Number</label>
-                                <input class="form-control" type="text" name="phone_number" id="phone_number" placeholder="Phone Number" value="{{ old('phone_number', $user->phone_number) }}" required />
-                            </div>
+        <div class="mb-3 col-md-6">
+            <label for="role_id" class="form-label">Vai trò</label>
+            <select id="role_id" name="role_id" class="form-select">
+                <option value="1" {{ $user->role_id == 1 ? 'selected' : '' }}>Admin</option>
+                <option value="2" {{ $user->role_id == 2 ? 'selected' : '' }}>User</option>
+            </select>
+        </div>
 
-                            <div class="mb-3 col-md-6">
-                                <label class="form-label">Role</label>
-                                <select class="form-select" name="role_id" id="role_id" required>
-                                    <option selected disabled>Chọn quyền người dùng</option>
-                                    @foreach ($roles as $role)
-                                        <option value="{{ $role->id }}" {{ old('role_id', $user->role_id) == $role->id ? 'selected' : '' }}>{{ $role->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
+        <div class="mb-3 col-md-6">
+            <label for="status" class="form-label">Trạng thái</label>
+            <select id="status" name="status" class="form-select">
+                <option value="1" {{ $user->status == 1 ? 'selected' : '' }}>Hoạt động</option>
+                <option value="0" {{ $user->status == 0 ? 'selected' : '' }}>Không hoạt động</option>
+            </select>
+        </div>
 
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                                <label class="form-label">Password</label>
-                                <input class="form-control" type="password" name="password" id="password" placeholder="Enter new password (optional)" />
-                            </div>
+        <div class="mb-3 col-md-6">
+            <label for="avatar" class="form-label">Ảnh đại diện</label>
+            <input type="file" id="avatar" name="avatar" class="form-control" />
+        </div>
 
-                            <div class="mb-3 col-md-6">
-                                <label class="form-label">Status</label>
-                                <select class="form-select" name="status" id="status" required>
-                                    <option value="1" {{ old('status', $user->status) == 1 ? 'selected' : '' }}>Active</option>
-                                    <option value="0" {{ old('status', $user->status) == 0 ? 'selected' : '' }}>Inactive</option>
-                                </select>
-                            </div>
-                        </div>
+        <div class="mb-3 col-md-6">
+            <label for="password" class="form-label">Mật khẩu</label>
+            <input class="form-control" type="password" id="password" name="password" />
+            <small class="form-text text-muted">Để trống nếu không thay đổi mật khẩu.</small>
+        </div>
 
-                        <div class="mb-3">
-                            <label class="form-label">Avatar</label>
-                            <input class="form-control" type="file" name="avatar" id="avatar" accept="image/*" />
-                            <img src="{{ asset('images/' . $user->avatar) }}" alt="avatar" style="width: 100px; height: 100px; margin-top: 10px;">
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Cập nhật</button>
-                    </form>
-                </div>
-            </div>
+        <div class="mb-3 col-md-6">
+            <label for="password_confirmation" class="form-label">Xác nhận mật khẩu</label>
+            <input class="form-control" type="password" id="password_confirmation"
+                name="password_confirmation" />
         </div>
     </div>
-</div>
-@endsection
+
+    <div class="mt-2">
+        <button type="submit" class="btn btn-primary me-2">Lưu thay đổi</button>
+        <a href="{{ route('admin.viewuser') }}" class="btn btn-outline-secondary">Hủy</a>
+    </div>
+</form>
