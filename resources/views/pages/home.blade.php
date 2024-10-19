@@ -574,6 +574,7 @@
     </section>
 </section>
 <section class="top-hotel">
+
 </section>
 
 <!-- Thêm các nội dung khác cho trang chủ ở đây -->
