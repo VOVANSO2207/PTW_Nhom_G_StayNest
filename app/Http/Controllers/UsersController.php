@@ -115,23 +115,32 @@ class UsersController extends Controller
     $user = User::findOrFail($id);
 
     // Xác thực dữ liệu nhập vào
-    $validator = Validator::make($request->all(), [
-        'username' => 'required|string|regex:/^[a-zA-Z0-9]*$/|min:6|max:25|not_regex:/\s/',
-        'phone_number' => 'required|string|min:10|max:15|regex:/^\d+$/',
-        'role_id' => 'required|integer',
-        'status' => 'required|boolean',
-        'avatar' => 'nullable|image|max:20480',
-        // 'password' => 'nullable|string|min:6|confirmed|regex:/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/'
-    ], [
-        'username.required' => 'Vui lòng nhập tên tài khoản',
-        'username.regex' => 'Tên tài khoản không chứa kí tự đặc biệt',
-        'username.min' => 'Tên đăng nhập phải có từ 6 đến 25 ký tự.',
-        'username.max' => 'Tên đăng nhập phải có từ 6 đến 25 ký tự.',
-        'username.not_regex' => 'Tên đăng nhập không được chứa khoảng trắng.',
-        'phone_number.required' => 'Vui lòng nhập số điện thoại',
-        'phone_number.regex' => 'Số điện thoại không hợp lệ.',
-        // 'password.regex' => 'Mật khẩu phải chứa ít nhất một ký tự đặc biệt (ví dụ: @, #, $, %, etc.)',
-    ]);
+$validator = Validator::make($request->all(), [
+    'username' => 'required|string|regex:/^[a-zA-Z0-9]*$/|min:6|max:25|not_regex:/\s/',
+    'phone_number' => 'required|string|min:10|max:15|regex:/^\d+$/',
+    'role_id' => 'required|integer',
+    'status' => 'required|boolean',
+    'avatar' => 'nullable|image|max:20480',
+    'password' => [
+        'nullable', 
+        'string', 
+        'min:8', 
+        'regex:/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/', 
+        'not_regex:/^[^\w]*$/'
+    ]
+], [
+    'username.required' => 'Vui lòng nhập tên tài khoản',
+    'username.regex' => 'Tên tài khoản không chứa kí tự đặc biệt',
+    'username.min' => 'Tên đăng nhập phải có từ 6 đến 25 ký tự.',
+    'username.max' => 'Tên đăng nhập phải có từ 6 đến 25 ký tự.',
+    'username.not_regex' => 'Tên đăng nhập không được chứa khoảng trắng.',
+    'phone_number.required' => 'Vui lòng nhập số điện thoại',
+    'phone_number.regex' => 'Số điện thoại không hợp lệ.',
+    'password.min' => 'Mật khẩu phải chứa ít nhất 8 ký tự, bao gồm cả chữ và số.',
+    'password.regex' => 'Mật khẩu phải chứa ít nhất một chữ cái, một số, và một ký tự đặc biệt.',
+    'password.not_regex' => 'Mật khẩu không được chỉ bao gồm ký tự đặc biệt, phải có cả chữ cái và số.'
+]);
+
 
     if ($validator->fails()) {
         return redirect()->back()->withErrors($validator)->withInput();
