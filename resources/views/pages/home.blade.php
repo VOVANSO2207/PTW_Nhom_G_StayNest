@@ -574,7 +574,6 @@
     </section>
 </section>
 <section class="top-hotel">
-    <h1 class="test">top hotel</h1>
 </section>
 
 <!-- Thêm các nội dung khác cho trang chủ ở đây -->
