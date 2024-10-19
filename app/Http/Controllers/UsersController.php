@@ -35,7 +35,7 @@ class UsersController extends Controller
             'password' => 'required|string|min:6',
             'phone_number' => 'required|string',
             'role_id' => 'required|integer',
-            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Xác thực ảnh
+            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Avatar là không bắt buộc
         ]);
 
         // Kiểm tra xem có lỗi xác thực không
@@ -43,12 +43,15 @@ class UsersController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        // Lưu ảnh vào thư mục và lấy tên ảnh
+        // Xử lý ảnh đại diện (avatar)
         if ($request->hasFile('avatar')) {
             // Tạo tên ảnh duy nhất
             $avatarName = time() . '_' . $request->file('avatar')->getClientOriginalName();
             // Di chuyển ảnh đến thư mục 'public/images'
             $request->file('avatar')->move(public_path('images'), $avatarName);
+        } else {
+            // Sử dụng ảnh đại diện mặc định nếu không có ảnh tải lên
+            $avatarName = 'default-avatar.png';
         }
 
         // Lưu người dùng mới vào CSDL
@@ -57,13 +60,14 @@ class UsersController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->phone_number = $request->phone_number;
-        $user->role_id = 2;
+        $user->role_id = $request->role_id;
         $user->status = false; // Đặt giá trị status mặc định là false
         $user->avatar = $avatarName; // Gán tên ảnh cho trường avatar
         $user->save();
 
         return redirect()->route('admin.viewuser')->with('success', 'User added successfully!'); // Chuyển hướng lại trang danh sách người dùng sau khi thêm thành công
     }
+
     public function searchUsers(Request $request)
     {
         $query = $request->input('query');
